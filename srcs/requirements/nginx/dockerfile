@@ -1,0 +1,18 @@
+FROM debian:bookworm
+
+#	Update packet installer, install nginx, create ssl certificat
+RUN apt update && apt upgrade -y && apt install nginx -y && \
+	mkdir -p /etc/nginx/ssl && apt install openssl -y && \
+	openssl req -x509 -nodes -days 365 -newkey rsa:2048 -out /etc/nginx/ssl/inception.crt \
+	-keyout /etc/nginx/ssl/inception.key -subj "/C=CH/ST=VD/L=Lausanne/0=42/OU=42/CN=[strieste.42.fr](http://strieste.42.fr/)/UID=strieste"
+
+COPY conf/nginx.conf /etc/nginx/sites-available/default
+# RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+
+RUN mkdir -p /var/www/wordpress && \
+	chown -R www-data:www-data /var/www/wordpress
+
+CMD [ "nginx", "-g", "daemon off;" ]
+#	Daemon off launch nginx in first PID
+#	-g given global directive for daemon off
+#	nginx launch nginx service PID 1
