@@ -1,0 +1,11 @@
+srcs/.env
+srcs/secrets
+
+data/
+
+.DS_Store
+**/.DS_Store
+
+*.log
+*.tmp
+*.swp
