@@ -28,5 +28,8 @@ RUN chmod +x /usr/local/bin/auto-config.sh
 WORKDIR /var/www/wordpress
 
 ENTRYPOINT [ "/usr/local/bin/auto-config.sh" ]
+#	This is the first thing that will run in my container
 
 CMD [ "/usr/sbin/php-fpm8.2", "-F" ]
+#	The -F (foreground) option forces PHP to run in the foreground (PID 1)
+#	This CMD command can be changed by launching the container with a different command specified in the parameter

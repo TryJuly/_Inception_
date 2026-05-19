@@ -10,5 +10,7 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 EXPOSE 3306
 
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
+#	This is the first thing that will run in my container
 
 CMD [ "mysqld_safe" ]
+#	This CMD command can be changed by launching the container with a different command specified in the parameter

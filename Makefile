@@ -3,6 +3,8 @@ FILE = srcs/docker-compose.yml
 all: up
 
 up:
+	@mkdir -p /home/strieste/data/wordpress
+	@mkdir -p /home/strieste/data/mariadb
 	@docker compose -f ${FILE} up -d --build
 
 down:

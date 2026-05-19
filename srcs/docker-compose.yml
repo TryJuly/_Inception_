@@ -46,7 +46,18 @@ services:
 
 volumes:
   db_data:
+    diver: local
+    drive_opts:
+      type: none
+      o: bind
+      device: /home/strieste/data/mariadb
+
   wp_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/strieste/data/wordpress
 
 networks:
   inception_network:

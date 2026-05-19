@@ -16,3 +16,4 @@ CMD [ "nginx", "-g", "daemon off;" ]
 #	Daemon off launch nginx in first PID
 #	-g given global directive for daemon off
 #	nginx launch nginx service PID 1
+#	This CMD command can be changed by launching the container with a different command specified in the parameter

@@ -18,7 +18,7 @@ if [ ! -f /var/www/wordpress/wp-config.php ]; then
 	--admin_password="$ADMIN_PASSWORD" \
 	--admin_email=$ADMIN_EMAIL
 
-	wp user create --allow-root $USER_LOGIN $USER_MAIL --role=author --user_pass="$USER_PASSWORD"
+	wp user create --allow-root $USER_LOGIN $USER_EMAIL --role=author --user_pass="$USER_PASSWORD"
 
 fi
 exec "$@"
